@@ -1,0 +1,5 @@
+# versao da CLI
+az version 
+az login 
+az group create --location brazilsouth --name resourcevisualstudio
+az group delete --name resourcevisualstudio

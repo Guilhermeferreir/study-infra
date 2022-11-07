@@ -1,0 +1,11 @@
+az login
+
+
+# grupo de recurso
+az group create --location brazilsouth --name terraformstate
+
+# storage account
+az storage account create --name storagename --resource-group terraformstate --location brazilsouth --sku Standard_LRS
+
+# container do Storage Account 
+az storage container create -n statecontainer --account-name storagename
