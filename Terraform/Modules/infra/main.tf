@@ -1,4 +1,4 @@
-resource "azurerm_resource_group" "rg"{
+resource "azurerm_resource_group" "rg" {
   name = "appservice-${lower(var.ambiente)}"
   location = var.location
 }
