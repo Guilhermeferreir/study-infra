@@ -15,6 +15,8 @@ resource "azurerm_resource_group" "rg" {
   
 }
 
+## create azurerm_key_vault_secret
+
 data "azurerm_client_config" "current" {
   
 }
@@ -40,4 +42,13 @@ resource "azurerm_key_vault" "keyvault" {
         "purge", 
         "recover" ]
   } 
+}
+
+## Provisioning secrets of Key Vault 
+
+resource "azurerm_key_vault_secret" "secret" {
+  name = "secret-terraform"
+  value = "mysecret@12345"
+  key_vault_id = azurerm_key_vault.keyvault.id 
+  expiration_date = "2022-12-31T00:00:00Z"
 }
