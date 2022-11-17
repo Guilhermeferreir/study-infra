@@ -52,3 +52,18 @@ resource "azurerm_key_vault_secret" "secret" {
   key_vault_id = azurerm_key_vault.keyvault.id 
   expiration_date = "2022-12-31T00:00:00Z"
 }
+
+
+## Recovering secrets from Azure Key Vault 
+
+data "azurerm_key_vault_secret" "getsecret" {
+    name = "secret-terraform"
+    key_vault_id = azurerm_key_vault.keyvault.id
+}
+
+output "secret-value" {
+    value = data.azurerm_key_vault_secret.getsecret.value  
+}
+
+output "keyvault-url" {
+  value = azurerm_key_vault.keyvault.uri
