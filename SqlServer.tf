@@ -26,3 +26,12 @@ resource "azurerm_sql_server" "example" {
     environment = "production"
   }
 }
+
+## Provisioning 
+
+resource "azurerm_sql_database" "azr-sql-database"{
+  name = "sqldatabase-terraform"
+  resource_group_name = azurerm_resource_group.rg.name
+  location = var.location
+  server_name = azurerm_sql_server.sqlserver.name
+}
