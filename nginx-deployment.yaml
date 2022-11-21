@@ -1,0 +1,31 @@
+## when you create a nginx-deployment automatically create ReplicaSets
+## kubectl aplly -f nginx-deployment.yaml
+## kubectl get po --show-labels 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: nginx-deployment
+spec:
+  replicas: 3
+  matchLabels:
+    app: nginx
+  template: 
+    metadata:
+
+  name: nginx-pod1
+  labels:  
+    team: Integrations
+    app: todo
+
+spec:
+
+  containers:
+
+  - name: nginx-container
+
+    image: nginx:latest
+
+    ports:
+
+    - containerPort: 80
