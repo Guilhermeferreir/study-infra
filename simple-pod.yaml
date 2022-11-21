@@ -1,19 +1,33 @@
+## CREATE THE POD IN THE TERMINAL 
+## kubectl run nginx-pod --image=nginx 
+
 apiVersion: v1
 
 kind: Pod
 
+## Information about the objects like resource name labels 
 metadata:
 
-  name: nginx
+  name: nginx-pod1
+  labels:  
+    team: Integrations
+    app: todo
+## Specification of the resource attributes 
 
 spec:
 
   containers:
 
-  - name: nginx
+  - name: nginx-container
 
-    image: nginx:1.14.2
+    image: nginx:latest
 
     ports:
 
     - containerPort: 80
+    
+## kubectl apply -f simples-pod.yaml
+## kubectl get pod -l team=integration
+## kuvectl get pod simples-pod.yaml -o yaml
+## kubectl description get pod simples-pod.yaml 
+## kubectl exec -it simples-pod.yaml --bash
