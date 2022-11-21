@@ -1,0 +1,14 @@
+## kubectl get po 
+## kubectl exec -it nginx........ --sh
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spend: 
+  selector:
+     app: nginx
+     tier: frontend
+  ports: 
+    - port: 8082
+      target-Port: 80 
