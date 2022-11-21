@@ -1,0 +1,31 @@
+## kubectl apply -f nginx-ReplicaSets.yaml 
+## kubectl get rs 
+## minikube node add --worker -p local-cluster
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: nginx-replicaset
+spec:
+  replicas: 3
+  matchLabels:
+    app: nginx
+  template: 
+    metadata:
+
+  name: nginx-pod1
+  labels:  
+    team: Integrations
+    app: todo
+
+spec:
+
+  containers:
+
+  - name: nginx-container
+
+    image: nginx:latest
+
+    ports:
+
+    - containerPort: 80
