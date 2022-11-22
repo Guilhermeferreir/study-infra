@@ -6,9 +6,11 @@ kind: Service
 metadata:
   name: nginx-service
 spend: 
+  type: NodePort
   selector:
      app: nginx
      tier: frontend
   ports: 
     - port: 8082
       target-Port: 80 
+      nodePort: 30000
